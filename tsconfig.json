@@ -1,0 +1,27 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": false,
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["*"]
+    },
+    "plugins": [
+      {
+        "name": "@styled/typescript-styled-plugin",
+        "lint": {
+          "validProperties": [
+            "margin-vertical",
+            "margin-horizontal",
+            "padding-vertical",
+            "padding-horizontal",
+            "shadow-color",
+            "shadow-opacity",
+            "shadow-radius",
+            "elevation"
+          ]
+        }
+      }
+    ]
+  }
+}

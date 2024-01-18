@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "pokerub",
+    "slug": "pokerub",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "pokerub-navigation-scheme",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0C0F14"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "backgroundColor": "#0C0F14",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#141921",
+      "barStyle": "light-content",
+      "translucent": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ]
+  }
+}
