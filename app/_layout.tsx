@@ -1,5 +1,7 @@
-import { Slot, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+
+import { LoadingDisplay } from "~/components";
 
 import { ThemeProvider } from "styled-components/native";
 import theme from "../src/theme";
@@ -26,7 +28,6 @@ export default function AppLayout() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Slot /> */}
       <Stack
         initialRouteName="(tabs)"
         screenOptions={{
@@ -40,6 +41,8 @@ export default function AppLayout() {
           options={{ presentation: "modal" }}
         />
       </Stack>
+
+      <LoadingDisplay />
 
       <StatusBar style="light" />
     </ThemeProvider>
