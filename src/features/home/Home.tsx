@@ -1,14 +1,17 @@
-import { Text } from "react-native";
+import { AppSafeArea } from "~/components";
+import { Subtitle, Title } from "./components";
 
 import * as S from "./styles";
-import { Link } from "expo-router";
+import { Search } from "./components/Search";
 
 export function HomePage() {
   return (
-    <S.Container>
-      <Link href="/pokemon_details" asChild>
-        <Text style={{ color: "#FFFFFF" }}>home</Text>
-      </Link>
-    </S.Container>
+    <AppSafeArea>
+      <S.Container>
+        <Title />
+        <Subtitle />
+        <Search />
+      </S.Container>
+    </AppSafeArea>
   );
 }
