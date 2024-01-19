@@ -7,7 +7,11 @@ import theme from "~/theme";
 
 const { colors } = theme;
 
-export function Search() {
+interface Props {
+  onChange: (text: string) => void;
+}
+
+export function Search({ onChange }: Props) {
   const [isFocusRequested, setIsFocusRequested] = useState(false);
 
   return (
@@ -22,6 +26,7 @@ export function Search() {
         placeholder="Buscar Pokemón..."
         onFocus={() => setIsFocusRequested(true)}
         onBlur={() => setIsFocusRequested(false)}
+        onChangeText={onChange}
       />
     </S.Container>
   );

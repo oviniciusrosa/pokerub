@@ -16,7 +16,9 @@ export function LoadingDisplay() {
     >
       {isLoading && (
         <>
-          <Logo />
+          <S.LogoContainer>
+            <LoadingIcon />
+          </S.LogoContainer>
           <S.LoadingMessage>Carregando...</S.LoadingMessage>
         </>
       )}
@@ -24,15 +26,10 @@ export function LoadingDisplay() {
   );
 }
 
-const Logo = () => (
-  <S.LogoContainer>
-    <LottieView
-      autoPlay
-      source={LogoAnimation}
-      style={{
-        width: 60,
-        height: 60,
-      }}
-    />
-  </S.LogoContainer>
+export const LoadingIcon = () => (
+  <LottieView
+    autoPlay
+    source={LogoAnimation}
+    style={{ width: 60, height: 60 }}
+  />
 );

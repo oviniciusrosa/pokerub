@@ -2,9 +2,17 @@ import { httpClient } from "~/api/http_client";
 import { IPokemon } from "~/interfaces/pokemon";
 import { getPokemonImgUrl } from "~/utils/getPokemonImgUrl";
 
+export type IGetPokemonFilter = {
+  search?: string;
+  params?: {
+    limit: number;
+    offset: number;
+  };
+};
+
 function sanitizeData(pokemon: any): IPokemon {
-  const [_, unformattedId] = pokemon.url.split("pokemon");
-  const id = unformattedId.replaceAll("/", "");
+  const [_, unformattedId] = pokemon?.url?.split("pokemon");
+  const id = pokemon?.id ?? unformattedId.replaceAll("/", "");
 
   return {
     id,
@@ -14,13 +22,25 @@ function sanitizeData(pokemon: any): IPokemon {
 }
 
 export const PokemonsService = {
-  getAll: async (): Promise<IPokemon[]> => {
-    const response = await httpClient.get("/pokemon/");
+  getAll: async (props?: IGetPokemonFilter): Promise<IPokemon[]> => {
+    const response = await httpClient.get(`/pokemon/${props?.search ?? ""}`, {
+      params: props.params,
+    });
 
     if (response.status != 200) {
       throw Error(response.request);
     }
 
-    return response.data.results.map(sanitizeData);
+    if (Array.isArray(response.data.results)) {
+      return response.data.results.map(sanitizeData);
+    }
+
+    return [
+      {
+        id: response.data.id,
+        name: response.data.name,
+        imageUrl: getPokemonImgUrl(response.data.id),
+      },
+    ];
   },
 };

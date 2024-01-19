@@ -8,7 +8,9 @@ const { statusBarHeight } = Constants;
 
 export function AppSafeArea({ children }: Props) {
   return (
-    <SafeAreaView style={{ paddingTop: statusBarHeight }}>
+    <SafeAreaView
+      style={{ paddingTop: statusBarHeight, width: "100%", height: "100%" }}
+    >
       {children}
     </SafeAreaView>
   );
