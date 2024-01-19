@@ -2,6 +2,7 @@ export default {
   colors: {
     /* PRIMARY */
     primary: "#6b7ae5",
+    primary_150: "rgba(107, 122, 229, 0.8)",
 
     /* NEUTRAL */
     black: "#000000",
