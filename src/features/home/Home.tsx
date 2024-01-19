@@ -1,17 +1,20 @@
+import { FlatList, ImageBackground } from "react-native";
 import { AppSafeArea, PokemonCard } from "~/components";
 import { Search, Subtitle, Title } from "./components";
+
 import { usePokemons } from "./hooks/usePokemons";
+import { useLoading } from "~/store/loading";
+
+import BackgroundImage from "../../../assets/backgrounds/default.png";
 
 import * as S from "./styles";
-import { FlatList } from "react-native";
-import { useLoading } from "~/store/loading";
 
 export function HomePage() {
   const { isLoading } = useLoading();
   const [pokemons, loadPokemons] = usePokemons();
 
   return (
-    <>
+    <ImageBackground source={BackgroundImage} resizeMode="contain">
       <AppSafeArea>
         <S.Container>
           <Title />
@@ -30,6 +33,6 @@ export function HomePage() {
           />
         </S.Container>
       </AppSafeArea>
-    </>
+    </ImageBackground>
   );
 }
