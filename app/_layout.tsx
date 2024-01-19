@@ -37,8 +37,11 @@ export default function AppLayout() {
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen
-          name="pokemon_details"
-          options={{ presentation: "modal" }}
+          name="pokemon_details/[id]"
+          options={{
+            presentation: "modal",
+            contentStyle: { backgroundColor: "rgba(0,0,0,0.8)" },
+          }}
         />
       </Stack>
 

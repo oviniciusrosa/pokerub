@@ -13,7 +13,12 @@ export function PokemonCard({ pokemon, index }: Props) {
 
   return (
     <S.Container
-      onPress={() => router.push("/pokemon_details")}
+      onPress={() =>
+        router.push({
+          pathname: `/pokemon_details/${pokemon.id}}`,
+          params: pokemon,
+        })
+      }
       transition={{ type: "timing", delay: 50 * index }}
     >
       <>
