@@ -22,7 +22,8 @@ export function usePokemons() {
   }
 
   useEffect(() => {
-    loadData();
+    // wait for animations
+    setTimeout(loadData, 400);
   }, []);
 
   return [pokemons, loadData] as const;
