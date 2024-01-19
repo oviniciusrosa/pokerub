@@ -15,7 +15,9 @@ export function usePokemons() {
     } catch (error) {
       // TODO: [] Implementar error catching
     } finally {
-      loading.stop();
+      setTimeout(() => {
+        loading.stop();
+      }, 500);
     }
   }
 
