@@ -1,7 +1,7 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-import { LoadingDisplay } from "~/components";
+import { LoadingDisplay, SnackBarDisplay } from "~/components";
 
 import { ThemeProvider } from "styled-components/native";
 import theme from "../src/theme";
@@ -15,6 +15,8 @@ import {
   Poppins_400Regular,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
+
+import "react-native-get-random-values";
 
 export default function AppLayout() {
   let [fontsLoaded] = useFonts({
@@ -46,7 +48,7 @@ export default function AppLayout() {
       </Stack>
 
       <LoadingDisplay />
-
+      <SnackBarDisplay root />
       <StatusBar style="light" />
     </ThemeProvider>
   );

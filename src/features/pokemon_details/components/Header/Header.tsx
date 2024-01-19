@@ -1,12 +1,11 @@
-import { useState } from "react";
-
 import { BackButton } from "~/components";
 import { FavoriteButton } from "~/components/FavoriteButton";
 
-import * as S from "./styles";
 import { useFavoritePokemons } from "~/store/favorite_pokemons";
 import { IPokemon } from "~/interfaces/pokemon";
 import { View } from "react-native";
+
+import * as S from "./styles";
 
 interface Props {
   pokemon: IPokemon;
