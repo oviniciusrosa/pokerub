@@ -6,6 +6,7 @@ import { FavoriteButton } from "~/components/FavoriteButton";
 import * as S from "./styles";
 import { useFavoritePokemons } from "~/store/favorite_pokemons";
 import { IPokemon } from "~/interfaces/pokemon";
+import { View } from "react-native";
 
 interface Props {
   pokemon: IPokemon;
@@ -27,7 +28,9 @@ export function Header({ pokemon }: Props) {
     <S.Container>
       <BackButton />
       <S.PokemonId>{exihibitionId}</S.PokemonId>
-      <FavoriteButton onChange={toggleFavorite} isCheck={isFavorite} />
+      <View style={{ padding: 5, paddingRight: 10 }}>
+        <FavoriteButton onChange={toggleFavorite} isCheck={isFavorite} />
+      </View>
     </S.Container>
   );
 }
