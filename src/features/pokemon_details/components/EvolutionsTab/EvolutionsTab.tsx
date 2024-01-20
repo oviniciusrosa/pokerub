@@ -37,7 +37,7 @@ export function EvolutionsTab({ pokemon }: Props) {
   return (
     <S.Container>
       {evolutions?.map((specie, index) => (
-        <S.Row>
+        <S.Row key={index}>
           {specie === pokemon.name ? (
             <AntDesign
               name="arrowright"
@@ -48,7 +48,6 @@ export function EvolutionsTab({ pokemon }: Props) {
             <View style={{ width: 18 }} />
           )}
           <S.Info
-            key={index}
             style={{
               color:
                 specie === pokemon.name

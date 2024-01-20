@@ -23,7 +23,11 @@ export function Option({ item, onSelectOption }) {
   return (
     <S.Pressable onPress={selectThisOption}>
       <S.OptionLabel
-        transition={{ type: "timing" }}
+        transition={{
+          type: "timing",
+          delay: 50 * (item.id + 1),
+          duration: 200,
+        }}
         from={INIT_STYLE}
         animate={
           {
