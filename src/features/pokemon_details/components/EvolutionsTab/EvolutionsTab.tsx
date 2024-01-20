@@ -5,9 +5,8 @@ import * as S from "./styles";
 import { useEffect, useState } from "react";
 import { PokemonsService } from "~/services/pokemons";
 import { AntDesign } from "@expo/vector-icons";
-import { Text, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import theme from "~/theme";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { useRouter } from "expo-router";
 import { useFavoritePokemons } from "~/store/favorite_pokemons";
 import { useLoading } from "~/store/loading";
@@ -76,8 +75,8 @@ function EvolutionRow({ pokemon, specie, index, evolutions }) {
     evolvePokemon(pokemon.id, data[0]);
 
     setTimeout(() => {
-      router.push({
-        pathname: `/pokemon_details/${data[0].id}}`,
+      router.replace({
+        pathname: `pokemon_details`,
         params: { ...data[0], evolved: true },
       });
       loading.stop();

@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.oviniciusrosa.pokerub"
     },
     "androidStatusBar": {
       "backgroundColor": "#141921",
@@ -36,6 +37,14 @@
     "plugins": [
       "expo-router",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f0188ac6-0800-4695-b15b-4cce33c072ad"
+      }
+    }
   }
 }
