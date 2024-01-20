@@ -25,6 +25,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useOpenedTab } from "./store/openedTab";
 
 import * as S from "./styles";
+import { ScrollView } from "moti";
 
 export function PokemonDetailsPage() {
   const pageRef = useRef<FlatList>(null);
@@ -62,65 +63,46 @@ export function PokemonDetailsPage() {
       <S.Container>
         <Header pokemon={pokemon as any} />
 
-        <VirtualizedList
-          showsVerticalScrollIndicator={false}
-          ListHeaderComponent={<PokemonName pokemon={pokemon} />}
-          stickyHeaderIndices={[2]}
-          renderItem={({ index }) => {
-            if (index === 1)
-              return (
-                <TabOptions
-                  onSelectOption={(option) => {
-                    pageRef.current.scrollToIndex({
-                      index: option,
-                      animated: true,
-                    });
-                  }}
-                />
-              );
+        <ScrollView>
+          <PokemonName pokemon={pokemon} />
 
-            // categoria, habilidades e evoluções
+          {imageUrl && (
+            <S.AnimatedImage
+              source={{ uri: imageUrl ?? "" }}
+              resizeMode="contain"
+              style={{ height: 280 }}
+            />
+          )}
+          <S.AnimatedImage
+            source={ShadowImage}
+            resizeMode="contain"
+            style={{
+              height: 44,
+              width: Dimensions.get("window").width,
+              opacity: 0.8,
+              marginTop: -25,
+            }}
+          />
 
-            if (index === 2) {
-              return (
-                <FlatList
-                  ref={pageRef}
-                  keyExtractor={(_, index) => index.toString()}
-                  renderItem={({ item }) => item}
-                  horizontal
-                  pagingEnabled
-                  onMomentumScrollEnd={onScrollEnd}
-                  data={TAB_CONTENT}
-                />
-              );
-            }
+          <TabOptions
+            onSelectOption={(option) => {
+              pageRef.current.scrollToIndex({
+                index: option,
+                animated: true,
+              });
+            }}
+          />
 
-            return (
-              <>
-                {imageUrl && (
-                  <Image
-                    source={{ uri: imageUrl ?? "" }}
-                    resizeMode="contain"
-                    style={{ height: 280 }}
-                  />
-                )}
-                <Image
-                  source={ShadowImage}
-                  resizeMode="contain"
-                  style={{
-                    height: 44,
-                    width: Dimensions.get("window").width,
-                    opacity: 0.8,
-                    marginTop: -25,
-                  }}
-                />
-              </>
-            );
-          }}
-          keyExtractor={(item) => item.toString()}
-          getItemCount={() => 3}
-          getItem={(_, index) => index}
-        />
+          <FlatList
+            ref={pageRef}
+            keyExtractor={(_, index) => index.toString()}
+            renderItem={({ item }) => item}
+            horizontal
+            pagingEnabled
+            onMomentumScrollEnd={onScrollEnd}
+            data={TAB_CONTENT}
+          />
+        </ScrollView>
       </S.Container>
 
       {Platform.OS === "ios" && pathname.includes("pokemon_details") && (
@@ -137,7 +119,6 @@ function PokemonName({ pokemon }) {
   return (
     <S.PokemonNameContainer pointerEvents="none">
       <S.PokemonName>{capitalize(pokemon?.name)}</S.PokemonName>
-
       <S.FloatingPokemonName>{capitalize(pokemon?.name)}</S.FloatingPokemonName>
     </S.PokemonNameContainer>
   );
