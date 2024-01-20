@@ -7,7 +7,13 @@ import {
   VirtualizedList,
 } from "react-native";
 import { LoadingDisplay, SnackBarDisplay } from "~/components";
-import { GeneralTab, Header, StatusTab, TabOptions } from "./components";
+import {
+  AbilitiesTab,
+  GeneralTab,
+  Header,
+  StatusTab,
+  TabOptions,
+} from "./components";
 
 import ShadowImage from "../../../assets/images/shadow.png";
 
@@ -32,26 +38,12 @@ export function PokemonDetailsPage() {
     return [
       <GeneralTab pokemon={pokemon} />,
       <StatusTab pokemon={pokemon} />,
-
-      <View
-        style={{
-          width: Dimensions.get("window").width - 50,
-          height: 1200,
-          backgroundColor: "purple",
-        }}
-      />,
+      <AbilitiesTab pokemon={pokemon} />,
       <View
         style={{
           width: Dimensions.get("window").width - 50,
           height: 1200,
           backgroundColor: "cyan",
-        }}
-      />,
-      <View
-        style={{
-          width: Dimensions.get("window").width - 50,
-          height: 1200,
-          backgroundColor: "pink",
         }}
       />,
     ];

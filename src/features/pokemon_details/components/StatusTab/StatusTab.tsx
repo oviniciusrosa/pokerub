@@ -1,9 +1,7 @@
 import { IDetailedPokemon } from "~/interfaces/pokemon";
-import * as S from "./styles";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
-import theme from "~/theme";
 import { capitalize } from "~/utils/capitalize";
-import { View } from "moti";
+
+import * as S from "./styles";
 
 interface Props {
   pokemon: IDetailedPokemon;
@@ -12,12 +10,8 @@ interface Props {
 export function StatusTab({ pokemon }: Props) {
   return (
     <S.Container>
-      {pokemon?.stats?.map((stat) => (
-        <Info
-          key={stat.stat.name}
-          label={stat.stat.name}
-          value={stat.base_stat}
-        />
+      {pokemon?.stats?.map((stat, index) => (
+        <Info key={index} label={stat.stat.name} value={stat.base_stat} />
       ))}
     </S.Container>
   );
@@ -26,7 +20,7 @@ export function StatusTab({ pokemon }: Props) {
 function Info({ label, value }) {
   return (
     <S.Row>
-      <S.Label>{label}:</S.Label>
+      <S.Label>{capitalize(label)}:</S.Label>
       <S.Value>{value}</S.Value>
     </S.Row>
   );

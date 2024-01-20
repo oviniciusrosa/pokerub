@@ -15,11 +15,13 @@ export interface IPokemonSprites {
   };
 }
 
-export interface IPokemonMove {
-  move: {
+export interface IPokemonAbility {
+  ability: {
     name: string;
     url: string;
   };
+  is_hidden: boolean;
+  slot: number;
 }
 
 export interface IPokemonStats {
@@ -46,7 +48,7 @@ export interface IDetailedPokemon {
   height: number;
 
   sprites: IPokemonSprites;
-  moves: IPokemonMove[];
+  abilities: IPokemonAbility[];
   stats: IPokemonStats[];
   types: IPokemonType[];
 }
