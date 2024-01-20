@@ -40,6 +40,10 @@ export interface IPokemonType {
     url: string;
   };
 }
+export interface IPokemonSpecie {
+  name: string;
+  url: string;
+}
 
 export interface IDetailedPokemon {
   id: number;
@@ -47,8 +51,20 @@ export interface IDetailedPokemon {
   weight: number;
   height: number;
 
+  species: IPokemonSpecie;
+
   sprites: IPokemonSprites;
   abilities: IPokemonAbility[];
   stats: IPokemonStats[];
   types: IPokemonType[];
+}
+
+export interface IChain {
+  evolves_to: IChain[];
+  species: IPokemonSpecie;
+}
+
+export interface IPokemonEvolutionChain {
+  id: number;
+  chain: IChain;
 }

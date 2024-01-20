@@ -1,5 +1,9 @@
 import { httpClient } from "~/api/http_client";
-import { IDetailedPokemon, IPokemon } from "~/interfaces/pokemon";
+import {
+  IDetailedPokemon,
+  IPokemon,
+  IPokemonEvolutionChain,
+} from "~/interfaces/pokemon";
 import { getPokemonImgUrl } from "~/utils/getPokemonImgUrl";
 
 export type IGetPokemonFilter = {
@@ -53,7 +57,23 @@ async function getById(id: string | number): Promise<IDetailedPokemon> {
   return response.data;
 }
 
+async function getEvolutions(
+  pokemonName: string
+): Promise<IPokemonEvolutionChain> {
+  const { data } = await httpClient.get(`/pokemon-species/${pokemonName}`);
+  if (!data) return;
+
+  const evolutionChainId = data.evolution_chain.url
+    .split("evolution-chain")[1]
+    .replaceAll("/", "");
+
+  const response = await httpClient.get(`/evolution-chain/${evolutionChainId}`);
+
+  return response.data;
+}
+
 export const PokemonsService = {
   getAll,
   getById,
+  getEvolutions,
 };

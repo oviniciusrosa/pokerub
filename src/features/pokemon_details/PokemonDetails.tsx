@@ -3,12 +3,12 @@ import {
   FlatList,
   Image,
   Platform,
-  View,
   VirtualizedList,
 } from "react-native";
 import { LoadingDisplay, SnackBarDisplay } from "~/components";
 import {
   AbilitiesTab,
+  EvolutionsTab,
   GeneralTab,
   Header,
   StatusTab,
@@ -20,10 +20,11 @@ import ShadowImage from "../../../assets/images/shadow.png";
 import { usePathname } from "expo-router";
 import { usePokemonDetails } from "./usePokemonDetails";
 
-import * as S from "./styles";
 import { capitalize } from "~/utils/capitalize";
 import { useEffect, useMemo, useRef } from "react";
 import { useOpenedTab } from "./store/openedTab";
+
+import * as S from "./styles";
 
 export function PokemonDetailsPage() {
   const pageRef = useRef<FlatList>(null);
@@ -39,13 +40,7 @@ export function PokemonDetailsPage() {
       <GeneralTab pokemon={pokemon} />,
       <StatusTab pokemon={pokemon} />,
       <AbilitiesTab pokemon={pokemon} />,
-      <View
-        style={{
-          width: Dimensions.get("window").width - 50,
-          height: 1200,
-          backgroundColor: "cyan",
-        }}
-      />,
+      <EvolutionsTab pokemon={pokemon} />,
     ];
   }, [pokemon]);
 

@@ -10,8 +10,10 @@ interface Props {
 export function AbilitiesTab({ pokemon }: Props) {
   return (
     <S.Container>
-      {pokemon.abilities.map((ability) => (
-        <S.Info>{capitalize(ability.ability.name).replaceAll("-", " ")}</S.Info>
+      {pokemon?.abilities?.map((ability, index) => (
+        <S.Info key={index}>
+          {capitalize(ability.ability.name).replaceAll("-", " ")}
+        </S.Info>
       ))}
     </S.Container>
   );
