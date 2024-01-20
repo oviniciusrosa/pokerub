@@ -12,8 +12,12 @@ Esse projeto faz parte do desafio para desenvolvedor **React Native** na **RubCu
 
 ## Overview
 
-<video src="https://github.com/oviniciusrosa/pokerub/assets/49296846/1fd4ad5b-bd74-4d5f-adf3-ea31d89aafa3)https://github.com/oviniciusrosa/pokerub/assets/49296846/1fd4ad5b-bd74-4d5f-adf3-ea31d89aafa3" width="200">
+Durante a implementação tentei me ater ao máximo à novas do ecossistema React Native, utilizando ferramentas como Expo Router, Xustand e Reanimated v3. O foco dos meus esforços foram em manter um aplicativo bonito, fluído e intuitivo.
 
+
+
+<video src="https://github.com/oviniciusrosa/pokerub/assets/49296846/1fd4ad5b-bd74-4d5f-adf3-ea31d89aafa3)https://github.com/oviniciusrosa/pokerub/assets/49296846/1fd4ad5b-bd74-4d5f-adf3-ea31d89aafa3" width="200">
+</video>
 
 ## Como rodar
 Para executar em modo de desenvolvimento, é necessário clonar o repositório:
