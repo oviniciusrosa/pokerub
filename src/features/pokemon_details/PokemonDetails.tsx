@@ -5,7 +5,7 @@ import {
   Platform,
   VirtualizedList,
 } from "react-native";
-import { LoadingDisplay, SnackBarDisplay } from "~/components";
+import { CongratsDisplay, LoadingDisplay, SnackBarDisplay } from "~/components";
 import {
   AbilitiesTab,
   EvolutionsTab,
@@ -111,6 +111,7 @@ export function PokemonDetailsPage() {
           <LoadingDisplay />
         </>
       )}
+      <CongratsDisplay visible={!!(pokemon as any)?.evolved} />
     </>
   );
 }

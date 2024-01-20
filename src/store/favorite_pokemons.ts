@@ -6,6 +6,7 @@ type FavoritePokemonsStore = {
   pokemons: IPokemon[];
   addPokemon: (pokemon: IPokemon) => void;
   removePokemon: (id: number) => void;
+  evolvePokemon: (id: number, evolvedPokemon: IPokemon) => void;
 };
 
 export const useFavoritePokemons = create<FavoritePokemonsStore>()((set) => {
@@ -32,6 +33,23 @@ export const useFavoritePokemons = create<FavoritePokemonsStore>()((set) => {
         return {
           pokemons: state.pokemons.filter((pokemon) => pokemon.id !== id),
         };
+      });
+    },
+    evolvePokemon: (id, evolved) => {
+      set((state) => {
+        const pokemons = [...state.pokemons];
+        const evolvedAlreadyExists =
+          state.pokemons.findIndex((p) => p.id === evolved.id) > -1;
+        if (evolvedAlreadyExists) {
+          return {
+            pokemons: state.pokemons.filter((pokemon) => pokemon.id !== id),
+          };
+        }
+
+        const index = state.pokemons.findIndex((p) => p.id === id);
+        pokemons[index] = evolved;
+
+        return { pokemons };
       });
     },
   };
