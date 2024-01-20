@@ -8,9 +8,11 @@ interface Props {
 }
 
 export function StatusTab({ pokemon }: Props) {
+  if (!pokemon.stats) return <></>;
+
   return (
     <S.Container>
-      {pokemon?.stats?.map((stat, index) => (
+      {pokemon.stats.map((stat, index) => (
         <Info key={index} label={stat.stat.name} value={stat.base_stat} />
       ))}
     </S.Container>

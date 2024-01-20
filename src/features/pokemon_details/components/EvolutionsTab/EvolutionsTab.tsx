@@ -27,6 +27,8 @@ function getSpecieName(chain: IChain, list: string[]): string[] {
 }
 
 export function EvolutionsTab({ pokemon }: Props) {
+  if (!pokemon.weight) return <></>;
+
   const [evolutions, setEvolutions] = useState<string[]>([]);
 
   async function loadData() {

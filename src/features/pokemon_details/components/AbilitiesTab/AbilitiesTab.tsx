@@ -8,6 +8,8 @@ interface Props {
 }
 
 export function AbilitiesTab({ pokemon }: Props) {
+  if (!pokemon.weight) return <></>;
+
   return (
     <S.Container>
       {pokemon?.abilities?.map((ability, index) => (

@@ -20,7 +20,11 @@ export function Header({ pokemon }: Props) {
   function toggleFavorite() {
     if (isFavorite) return removePokemon(pokemon.id);
 
-    addPokemon(pokemon);
+    addPokemon({
+      id: pokemon.id,
+      name: pokemon.name,
+      imageUrl: pokemon.imageUrl,
+    });
   }
 
   return (

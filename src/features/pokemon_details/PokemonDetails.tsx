@@ -61,7 +61,7 @@ export function PokemonDetailsPage() {
   return (
     <>
       <S.Container>
-        <Header pokemon={pokemon as any} />
+        <Header pokemon={pokemon} />
 
         <ScrollView>
           <PokemonName pokemon={pokemon} />

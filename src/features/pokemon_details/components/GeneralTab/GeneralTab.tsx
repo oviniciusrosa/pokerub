@@ -9,6 +9,8 @@ interface Props {
 }
 
 export function GeneralTab({ pokemon }: Props) {
+  if (!pokemon.weight) return <></>;
+
   return (
     <S.Container>
       <Types pokemon={pokemon} />
@@ -42,11 +44,13 @@ export function GeneralTab({ pokemon }: Props) {
 }
 
 function Types({ pokemon }) {
+  if (!pokemon?.types) return <></>;
+
   return (
     <S.PokemonTypeContainer>
       {pokemon?.types?.map((item, index) => (
         <S.PokemonTypeCard key={index}>
-          <S.PokemonType>{capitalize(item?.type?.name)}</S.PokemonType>
+          <S.PokemonType>{capitalize(item?.type?.name ?? "")}</S.PokemonType>
         </S.PokemonTypeCard>
       ))}
     </S.PokemonTypeContainer>

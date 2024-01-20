@@ -18,6 +18,9 @@ import {
 
 import "react-native-get-random-values";
 
+import { LogBox } from "react-native";
+LogBox.ignoreAllLogs();
+
 export default function AppLayout() {
   let [fontsLoaded] = useFonts({
     Poppins_600SemiBold,
