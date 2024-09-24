@@ -12,7 +12,7 @@ Esse projeto faz parte do desafio para desenvolvedor **React Native** na **RubCu
 
 ## Overview
 
-Durante a implementação tentei me ater ao máximo à novas do ecossistema React Native, utilizando ferramentas como Expo Router, Xustand e Reanimated v3. O foco dos meus esforços foram em manter um aplicativo bonito, fluído e intuitivo.
+Durante a implementação tentei me ater ao máximo à novas do ecossistema React Native, utilizando ferramentas como Expo Router, Zustand e Reanimated v3. O foco dos meus esforços foram em manter um aplicativo bonito, fluído e intuitivo.
 
 
 
